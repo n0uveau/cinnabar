@@ -28,8 +28,7 @@ impl Extractor for Diff {
             .filter_map(|window| {
                 let diff = window[0].diff(&window[1]);
 
-                let passes = self.threshold
-                    .map_or(true, |t| Self::sum(&diff) >= t);
+                let passes = self.threshold.is_none_or(|t| Self::sum(&diff) >= t);
 
                 passes.then_some(diff)
             })

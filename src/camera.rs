@@ -1,4 +1,8 @@
-use nokhwa::{pixel_format::RgbFormat, utils::{CameraIndex, RequestedFormat, RequestedFormatType}, Camera as NokhwaCamera};
+use nokhwa::{
+    Camera as NokhwaCamera,
+    pixel_format::RgbFormat,
+    utils::{CameraIndex, RequestedFormat, RequestedFormatType},
+};
 
 use crate::Frame;
 

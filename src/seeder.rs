@@ -20,3 +20,9 @@ impl Seeder {
         self.hasher.finalize().into()
     }
 }
+
+impl Default for Seeder {
+    fn default() -> Self {
+        Self::new()
+    }
+}
