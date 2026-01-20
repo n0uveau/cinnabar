@@ -28,6 +28,10 @@ impl Camera {
         Ok(Self { inner: camera })
     }
 
+    pub fn inner(&self) -> &NokhwaCamera {
+        &self.inner
+    }
+
     pub fn capture(&mut self) -> Result<Frame> {
         let frame = self.inner.frame()?;
         let decoded = frame.decode_image::<RgbFormat>()?;
