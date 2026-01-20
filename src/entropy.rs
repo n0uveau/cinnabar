@@ -5,6 +5,19 @@ pub trait Extractor {
 }
 
 #[derive(Debug, Clone, Default)]
+pub struct Raw;
+
+impl Extractor for Raw {
+    fn extract(&self, frames: &[Frame]) -> Vec<u8> {
+        frames
+            .iter()
+            .flat_map(|frame| frame.as_ref())
+            .copied()
+            .collect()
+    }
+}
+
+#[derive(Debug, Clone, Default)]
 pub struct Diff {
     pub threshold: Option<u64>,
 }
